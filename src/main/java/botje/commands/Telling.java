@@ -165,16 +165,22 @@ public class Telling extends ListenerAdapter {
 				case "tippers":
 					map.put("tippers", map.get("tippers") + 1);
 					break;
-				case "aspijongens":
+				case "kerels":
+					map.put("kerels", map.get("kerels") + 1);
+					break;
+				case "tiptiens":
+					map.put("tiptiens", map.get("tiptiens") + 1);
+					break;
+				case "aspi_jongens":
 					map.put("aspijongens", map.get("aspijongens") + 1);
 					break;
-				case "aspimeisjes":
+				case "aspi_meisjes":
 					map.put("aspimeisjes", map.get("aspimeisjes") + 1);
 					break;
-				case "vbjongens":
+				case "vb_jongens":
 					map.put("vbjongens", map.get("vbjongens") + 1);
 					break;
-				case "vbmeisjes":
+				case "vb_meisjes":
 					map.put("vbmeisjes", map.get("vbmeisjes") + 1);
 					break;
 			}
