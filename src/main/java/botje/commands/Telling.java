@@ -91,9 +91,7 @@ public class Telling extends ListenerAdapter {
 			for (Member member : channelMembers) {
 				countGroups(member, attendenceMap);
 			}
-			
-			System.out.println(channelName);
-			
+						
 			m = true;
 			j = true;
 			if (channelName.equalsIgnoreCase("lkj")) {
@@ -111,9 +109,7 @@ public class Telling extends ListenerAdapter {
 		EmbedBuilder tellingEmbed = new EmbedBuilder();
 		tellingEmbed.setTitle("telling");
 		tellingEmbed.setColor(Color.green);
-		
-		System.out.println(j + " " + m);
-		
+				
 		if (j) {
 			tellingEmbed.addField("kadees", attendenceMap.get("kadees").toString() + "/" + groupsMap.get("kadees"), true);
 			tellingEmbed.addField("kanjers", attendenceMap.get("kanjers").toString() + "/" + groupsMap.get("kanjers"), true);
@@ -143,6 +139,7 @@ public class Telling extends ListenerAdapter {
 		
 		for (Role role : memberRoles) {
 			String roleName = role.getName().toLowerCase();
+
 			switch (roleName) {
 				case "kadees":
 					map.put("kadees", map.get("kadees") + 1);
@@ -187,6 +184,7 @@ public class Telling extends ListenerAdapter {
 	
 	private void getAllGroupNumbers(GuildMessageReceivedEvent event) {
 		List<Member> allMembers = event.getGuild().getMembers();
+		
 		
 		for (Member member : allMembers) {
 			countGroups(member, groupsMap);

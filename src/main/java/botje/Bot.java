@@ -4,12 +4,15 @@ import java.util.Scanner;
 
 import javax.security.auth.login.LoginException;
 
+import botje.commands.Help;
 import botje.commands.Info;
 import botje.commands.Telling;
 import botje.events.Join;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.requests.GatewayIntent;
+import net.dv8tion.jda.api.utils.ChunkingFilter;
+import net.dv8tion.jda.api.utils.MemberCachePolicy;
 
 public class Bot {
 	
@@ -21,8 +24,11 @@ public class Bot {
 			builder = JDABuilder.createDefault(scanner.next());
 			scanner.close();
 			builder.setStatus(OnlineStatus.ONLINE);
+			builder.setChunkingFilter(ChunkingFilter.ALL);
+			builder.setMemberCachePolicy(MemberCachePolicy.ALL);
 			builder.enableIntents(GatewayIntent.GUILD_MEMBERS);
-			builder.addEventListeners(new Info());
+			//builder.addEventListeners(new Info());
+			builder.addEventListeners(new Help());
 			builder.addEventListeners(new Telling());
 			builder.addEventListeners(new Join());
 		} catch (Exception e) {
