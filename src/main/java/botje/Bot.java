@@ -11,7 +11,7 @@ public class Bot {
 	JDABuilder builder;
 
 	public Bot() {
-		builder = JDABuilder.createDefault("ODA2OTgyNzE0MDA2NzAwMDUz.YBxXOA.KW9yMeGSmH1WQ1XSjYomQz3Rldg");
+		builder = JDABuilder.createDefault("token");
 		builder.setStatus(OnlineStatus.ONLINE);
 		builder.addEventListeners(new Commands());
 	}
