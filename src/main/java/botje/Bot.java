@@ -1,5 +1,7 @@
 package botje;
 
+import java.util.Scanner;
+
 import javax.security.auth.login.LoginException;
 
 import botje.commands.Info;
@@ -12,14 +14,20 @@ import net.dv8tion.jda.api.requests.GatewayIntent;
 public class Bot {
 	
 	JDABuilder builder;
-
+	
 	public Bot() {
-		builder = JDABuilder.createDefault("token");
-		builder.setStatus(OnlineStatus.ONLINE);
-		builder.enableIntents(GatewayIntent.GUILD_MEMBERS);
-		builder.addEventListeners(new Info());
-		builder.addEventListeners(new Telling());
-		builder.addEventListeners(new Join());
+		try {
+			Scanner scanner = new Scanner(getClass().getResourceAsStream("token.txt"));
+			builder = JDABuilder.createDefault(scanner.next());
+			scanner.close();
+			builder.setStatus(OnlineStatus.ONLINE);
+			builder.enableIntents(GatewayIntent.GUILD_MEMBERS);
+			builder.addEventListeners(new Info());
+			builder.addEventListeners(new Telling());
+			builder.addEventListeners(new Join());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void launch() {
