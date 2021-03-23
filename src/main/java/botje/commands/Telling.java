@@ -7,7 +7,7 @@ import java.util.List;
 
 import javax.annotation.Nonnull;
 
-
+import botje.Bot;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Role;
@@ -16,9 +16,7 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 public class Telling extends ListenerAdapter {
-	
-	private final static String prefix = "!";   
-	
+		
 	private List<Member> channelMembers = new ArrayList<Member>();
 	private HashMap<String, Integer> attendenceMap = new HashMap<String, Integer>();
 	private HashMap<String, Integer> groupsMap = new HashMap<String, Integer>();
@@ -50,14 +48,14 @@ public class Telling extends ListenerAdapter {
     public void onGuildMessageReceived(@Nonnull GuildMessageReceivedEvent event) {
 		String[] args = event.getMessage().getContentRaw().split("\\s+");
 
-		if (!event.getAuthor().isBot() && args[0].equals(prefix+"telling")) {
+		if (!event.getAuthor().isBot() && args[0].equals(Bot.prefix+"telling")) {
 			
 			if (args.length < 2) {
 				// display usage
 				EmbedBuilder usage = new EmbedBuilder();
 				usage.setColor(Color.red);
 				usage.setTitle("Telling");
-				usage.setDescription("Werking: "+ prefix + "telling {voicechannel}");
+				usage.setDescription("Werking: "+ Bot.prefix + "telling {voicechannel}");
 				event.getChannel().sendMessage(usage.build()).queue();
 			} else {
 				String channelName = args[1];

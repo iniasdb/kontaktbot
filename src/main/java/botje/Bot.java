@@ -5,8 +5,8 @@ import java.util.Scanner;
 import javax.security.auth.login.LoginException;
 
 import botje.commands.Help;
-import botje.commands.Info;
 import botje.commands.Abusecommand;
+import botje.commands.Clash;
 import botje.commands.Telling;
 import botje.events.Join;
 import net.dv8tion.jda.api.JDABuilder;
@@ -19,6 +19,7 @@ import net.dv8tion.jda.api.utils.MemberCachePolicy;
 public class Bot {
 	
 	JDABuilder builder;
+	public final static String prefix = "!";   
 	
 	public Bot() {
 		try {
@@ -26,6 +27,7 @@ public class Bot {
 			builder = JDABuilder.createDefault(scanner.next());
 			scanner.close();
 			builder.setStatus(OnlineStatus.ONLINE);
+			builder.setActivity(Activity.playing("met het kutje van uw moeder"));
 			builder.setChunkingFilter(ChunkingFilter.ALL);
 			builder.setMemberCachePolicy(MemberCachePolicy.ALL);
 			builder.enableIntents(GatewayIntent.GUILD_MEMBERS);
@@ -34,6 +36,7 @@ public class Bot {
 			builder.addEventListeners(new Telling());
 			builder.addEventListeners(new Join());
 			builder.addEventListeners(new Abusecommand());
+			builder.addEventListeners(new Clash());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

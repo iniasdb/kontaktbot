@@ -7,20 +7,20 @@ import javax.annotation.Nonnull;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import botje.Bot;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 public class Info extends ListenerAdapter {
 	
-	private final static String prefix = "!";   
 	private static final Logger logger = LogManager.getLogger(Info.class);
 	
 	@Override
     public void onGuildMessageReceived(@Nonnull GuildMessageReceivedEvent event) {
 		String[] args = event.getMessage().getContentRaw().split("\\s+");
 
-		if (!event.getAuthor().isBot() && args[0].equals(prefix+"info")) {
+		if (!event.getAuthor().isBot() && args[0].equals(Bot.prefix+"info")) {
 			logger.info("Display info command");
 			displayInfo(event);
 		}
