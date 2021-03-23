@@ -8,6 +8,7 @@ import botje.commands.Help;
 import botje.commands.Abusecommand;
 import botje.commands.Clash;
 import botje.commands.Telling;
+import botje.events.Callie;
 import botje.events.Join;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
@@ -31,12 +32,14 @@ public class Bot {
 			builder.setChunkingFilter(ChunkingFilter.ALL);
 			builder.setMemberCachePolicy(MemberCachePolicy.ALL);
 			builder.enableIntents(GatewayIntent.GUILD_MEMBERS);
+			
 			//builder.addEventListeners(new Info());
 			builder.addEventListeners(new Help());
 			builder.addEventListeners(new Telling());
-			builder.addEventListeners(new Join());
 			builder.addEventListeners(new Abusecommand());
 			builder.addEventListeners(new Clash());
+			builder.addEventListeners(new Join());
+			builder.addEventListeners(new Callie());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
