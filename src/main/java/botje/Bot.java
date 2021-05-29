@@ -5,10 +5,12 @@ import java.util.Scanner;
 import javax.security.auth.login.LoginException;
 
 import botje.commands.Help;
+import botje.commands.Poef;
 import botje.commands.Abusecommand;
 import botje.commands.Clash;
 import botje.commands.Telling;
 import botje.events.Callie;
+import botje.events.EmojiResponder;
 import botje.events.Join;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
@@ -40,6 +42,9 @@ public class Bot {
 			builder.addEventListeners(new Clash());
 			builder.addEventListeners(new Join());
 			builder.addEventListeners(new Callie());
+			builder.addEventListeners(new EmojiResponder());
+			builder.addEventListeners(new Poef());
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
