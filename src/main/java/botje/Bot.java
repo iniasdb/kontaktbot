@@ -6,6 +6,7 @@ import javax.security.auth.login.LoginException;
 
 import botje.commands.Help;
 import botje.commands.Poef;
+import botje.commands.Reddit;
 import botje.commands.Abusecommand;
 import botje.commands.Clash;
 import botje.commands.Telling;
@@ -44,6 +45,7 @@ public class Bot {
 			builder.addEventListeners(new Callie());
 			builder.addEventListeners(new EmojiResponder());
 			builder.addEventListeners(new Poef());
+			builder.addEventListeners(new Reddit());
 
 		} catch (Exception e) {
 			e.printStackTrace();
