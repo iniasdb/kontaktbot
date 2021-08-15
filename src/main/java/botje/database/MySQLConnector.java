@@ -77,7 +77,7 @@ public class MySQLConnector {
 	private final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
 	private final String DB_URL = "jdbc:mysql://84.196.130.15";
 	private final String PASS = "admin";
-	private final String USER = "#Tomatensoep1";
+	private final String USER = "";
 	private Connection conn = null;
 	private Statement stmt = null;
 		
