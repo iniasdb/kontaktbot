@@ -5,7 +5,7 @@ import java.util.Scanner;
 import javax.security.auth.login.LoginException;
 
 import botje.commands.Help;
-import botje.commands.Poef;
+import botje.commands.Punnish;
 import botje.commands.Reddit;
 import botje.commands.Abusecommand;
 import botje.commands.Clash;
@@ -27,8 +27,9 @@ public class Bot {
 	
 	public Bot() {
 		try {
-			Scanner scanner = new Scanner(getClass().getResourceAsStream("token.txt"));
-			builder = JDABuilder.createDefault(scanner.next());
+			Scanner scanner = new Scanner(getClass().getClassLoader().getResourceAsStream("token.txt"));
+			String token  = scanner.next();
+			builder = JDABuilder.createDefault(token);
 			scanner.close();
 			builder.setStatus(OnlineStatus.ONLINE);
 			builder.setActivity(Activity.playing("met het kutje van uw moeder"));
@@ -44,10 +45,12 @@ public class Bot {
 			builder.addEventListeners(new Join());
 			builder.addEventListeners(new Callie());
 			builder.addEventListeners(new EmojiResponder());
-			builder.addEventListeners(new Poef());
+			//builder.addEventListeners(new Poef());
 			builder.addEventListeners(new Reddit());
+			builder.addEventListeners(new Punnish());
 
 		} catch (Exception e) {
+			System.out.println(getClass().getCanonicalName());
 			e.printStackTrace();
 		}
 	}

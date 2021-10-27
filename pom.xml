@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>be.idb</groupId>
   <artifactId>botje</artifactId>
-  <version>1.7</version>
+  <version>1.8</version>
   <build>
   	<plugins>
   		<plugin>
@@ -46,6 +46,17 @@
 	    <artifactId>mysql-connector-java</artifactId>
 	    <version>8.0.23</version>
 	</dependency>
+	<dependency>
+    <groupId>org.openjfx</groupId>
+    <artifactId>javafx</artifactId>
+    <version>11</version>
+    <type>pom</type>
+</dependency>
+<dependency>
+  <groupId>org.brunocvcunha.jiphy</groupId>
+  <artifactId>jiphy</artifactId>
+  <version>1.0</version>
+</dependency>
   </dependencies>
   <repositories>
   <repository>
